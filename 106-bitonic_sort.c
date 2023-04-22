@@ -41,14 +41,14 @@ void bitonic_stuff(int *numray, size_t size, size_t start, size_t seq,
 }
 
 /**
- * bitonic_stuff_2 - Convert an numray of integers into a bitonic sequence.
+ * bitonic_stu2 - Convert an numray of integers into a bitonic sequence.
  * @numray: An array of NUMBERS (numray)..
  * @size: The size of the numray.
  * @start: The starting index of a block of the building bitonic sequence.
  * @seq: The size of a block of the building bitonic sequence.
  * @dir: The direction to sort the bitonic sequence block in.
  */
-void bitonic_stuff_2(int *numray, size_t size, size_t start, size_t seq, char dir)
+void bitonic_stu2(int *numray, size_t size, size_t start, size_t seq, char dir)
 {
 	size_t cut = seq / 2;
 	char *str = (dir == UP) ? "UP" : "DOWN";
@@ -58,8 +58,8 @@ void bitonic_stuff_2(int *numray, size_t size, size_t start, size_t seq, char di
 		printf("Merging [%lu/%lu] (%s):\n", seq, size, str);
 		print_array(numray + start, seq);
 
-		bitonic_stuff_2(numray, size, start, cut, UP);
-		bitonic_stuff_2(numray, size, start + cut, cut, DOWN);
+		bitonic_stu2(numray, size, start, cut, UP);
+		bitonic_stu2(numray, size, start + cut, cut, DOWN);
 		bitonic_stuff(numray, size, start, seq, dir);
 
 		printf("Result [%lu/%lu] (%s):\n", seq, size, str);
@@ -79,5 +79,5 @@ void bitonic_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	bitonic_stuff_2(array, size, 0, size, UP);
+	bitonic_stu2(array, size, 0, size, UP);
 }
